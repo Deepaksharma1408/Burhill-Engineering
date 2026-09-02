@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { SITE_CONTENT } from '@/data/content';
 import { TechnicalGridOverlay } from '@/components/ui/TechnicalGridOverlay';
 import { CTABanner } from '@/components/ui/CTABanner';
-import { ArrowLeft, Calendar, Clock, User, CheckCircle2, Bookmark, Share2 } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle2, Bookmark } from 'lucide-react';
 
 interface InsightArticleDetailProps {
   params: Promise<{ slug: string }>;
@@ -30,15 +30,15 @@ export default async function InsightArticleDetail({ params }: InsightArticleDet
   return (
     <div className="space-y-12 sm:space-y-16 py-8">
 
-      {/* Top Article Header */}
+      {/* Top Article Header with Entrance Animation */}
       <section className="bg-navy text-white py-12 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 animate-slide-up">
           <Link
             href="/insights"
-            className="inline-flex items-center space-x-2 text-xs font-mono text-gold hover:text-white transition-colors"
+            className="inline-flex items-center space-x-2 text-xs font-mono text-gold hover:text-white transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
             <span>Back to Insights & Technical Papers</span>
           </Link>
 
@@ -49,7 +49,7 @@ export default async function InsightArticleDetail({ params }: InsightArticleDet
               </span>
               <span className="text-slate-400">|</span>
               <span className="flex items-center space-x-1 text-slate-300">
-                <Clock className="w-3.5 h-3.5 text-gold" />
+                <Clock className="w-3.5 h-3.5 text-gold animate-pulse-subtle" />
                 <span>{article.readTime}</span>
               </span>
               <span className="text-slate-400">|</span>
@@ -77,7 +77,7 @@ export default async function InsightArticleDetail({ params }: InsightArticleDet
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Executive Excerpt Box */}
-        <div className="bg-slate-bg border-l-4 border-gold p-6 rounded-r-lg space-y-2">
+        <div className="bg-slate-bg border-l-4 border-gold p-6 rounded-r-lg space-y-2 animate-slide-up">
           <span className="text-xs font-mono uppercase font-bold text-navy">EXECUTIVE BRIEFING SUMMARY</span>
           <p className="text-base text-slate-800 font-serif italic leading-relaxed">
             "{article.excerpt}"
@@ -85,16 +85,16 @@ export default async function InsightArticleDetail({ params }: InsightArticleDet
         </div>
 
         {/* Content Paragraphs */}
-        <div className="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed font-sans text-base">
+        <div className="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed font-sans text-base animate-slide-up delay-100">
           {article.contentParagraphs.map((para, idx) => (
             <p key={idx}>{para}</p>
           ))}
         </div>
 
         {/* Key Takeaways Technical Box */}
-        <div className="bg-navy-dark text-white border border-gold/40 rounded-xl p-6 sm:p-8 space-y-4 shadow-xl">
+        <div className="bg-navy-dark text-white border border-gold/40 rounded-xl p-6 sm:p-8 space-y-4 shadow-xl animate-slide-up delay-200">
           <div className="flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-wider">
-            <Bookmark className="w-4 h-4 text-gold" />
+            <Bookmark className="w-4 h-4 text-gold animate-pulse-subtle" />
             <span>KEY ADVISORY TAKEAWAYS FOR ASSET DIRECTORS</span>
           </div>
 
@@ -110,7 +110,7 @@ export default async function InsightArticleDetail({ params }: InsightArticleDet
 
         {/* Author Bio Card */}
         {authorProfile && (
-          <div className="bg-white border border-slate-border rounded-lg p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="bg-white border border-slate-border rounded-lg p-6 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 hover:border-gold hover:shadow-xl transition-all duration-300 animate-slide-up">
             <div className="w-16 h-16 rounded-full bg-navy text-gold font-serif text-2xl font-bold flex items-center justify-center shrink-0 border-2 border-gold">
               {authorProfile.name.split(' ').map(n => n[0]).join('')}
             </div>

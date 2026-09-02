@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { SITE_CONTENT } from '@/data/content';
-import { SectionHeader } from '@/components/ui/SectionHeader';
 import { CTABanner } from '@/components/ui/CTABanner';
 import { BlueprintGraphic } from '@/components/ui/BlueprintGraphic';
 import { TechnicalGridOverlay } from '@/components/ui/TechnicalGridOverlay';
-import { ShieldCheck, AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { AlertCircle, ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: "Industry Expertise & Sector Practice",
@@ -16,11 +15,12 @@ export default function IndustryExpertisePage() {
   return (
     <div className="space-y-16 sm:space-y-24 py-8">
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Entrance Animation */}
       <section className="bg-navy text-white py-16 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 animate-slide-up">
           <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3 py-1 rounded border border-gold/30">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-subtle"></span>
             <span>TARGET ASSET CLASSES // HIGH-CONSEQUENCE INFRASTRUCTURE</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
@@ -40,7 +40,7 @@ export default function IndustryExpertisePage() {
             <div
               key={sector.id}
               id={sector.slug}
-              className="bg-white border border-slate-border rounded-xl overflow-hidden shadow-sm hover:border-gold transition-all duration-300 scroll-mt-24"
+              className="group bg-white border border-slate-border rounded-xl overflow-hidden shadow-sm hover:border-gold hover:shadow-2xl transition-all duration-500 ease-out scroll-mt-24 animate-slide-up"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12">
 
@@ -51,7 +51,7 @@ export default function IndustryExpertisePage() {
                     <div className="text-[10px] font-mono text-gold uppercase tracking-widest">
                       SECTOR CODE // SEC-0{index + 1}
                     </div>
-                    <h2 className="text-2xl font-serif font-bold text-white">
+                    <h2 className="text-2xl font-serif font-bold text-white group-hover:text-gold transition-colors">
                       {sector.title}
                     </h2>
                     <p className="text-xs font-mono text-slate-300 italic">
@@ -59,7 +59,7 @@ export default function IndustryExpertisePage() {
                     </p>
                   </div>
 
-                  <div className="relative z-10 my-6">
+                  <div className="relative z-10 my-6 transform group-hover:scale-105 transition-transform duration-700 ease-out">
                     <BlueprintGraphic
                       type={index === 0 ? 'tunnel' : index === 1 ? 'datacenter' : index === 2 ? 'bridge' : 'foundation'}
                     />
@@ -67,9 +67,9 @@ export default function IndustryExpertisePage() {
 
                   <div className="relative z-10 pt-4 border-t border-navy-border flex items-center justify-between text-xs font-mono text-gold">
                     <span>{sector.featuredProjectsCount} Representative Engagements</span>
-                    <Link href="/projects" className="hover:underline flex items-center space-x-1">
+                    <Link href="/projects" className="hover:underline flex items-center space-x-1 group/link">
                       <span>View Projects</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -83,12 +83,12 @@ export default function IndustryExpertisePage() {
                   {/* Key Challenges Solved */}
                   <div className="space-y-3">
                     <span className="text-xs font-mono font-bold uppercase text-navy tracking-wider flex items-center space-x-1.5">
-                      <AlertCircle className="w-4 h-4 text-gold" />
+                      <AlertCircle className="w-4 h-4 text-gold animate-pulse-subtle" />
                       <span>Key Technical Challenges Addressed:</span>
                     </span>
                     <ul className="space-y-2">
                       {sector.keyChallenges.map((challenge, cIdx) => (
-                        <li key={cIdx} className="text-xs text-slate-600 flex items-start space-x-2 bg-slate-bg p-2.5 rounded border border-slate-border/60">
+                        <li key={cIdx} className="text-xs text-slate-600 flex items-start space-x-2 bg-slate-bg p-2.5 rounded border border-slate-border/60 hover:border-gold/30 hover:bg-navy/5 transition-all">
                           <span className="text-gold font-bold">›</span>
                           <span>{challenge}</span>
                         </li>
@@ -97,7 +97,7 @@ export default function IndustryExpertisePage() {
                   </div>
 
                   {/* Our Value Add */}
-                  <div className="p-4 bg-navy-dark text-white rounded-lg border border-gold/30 space-y-1">
+                  <div className="p-4 bg-navy-dark text-white rounded-lg border border-gold/30 space-y-1 group-hover:border-gold/60 transition-colors">
                     <div className="text-[10px] font-mono text-gold uppercase font-bold">BURHILL TECHNICAL VALUE PROPOSITION</div>
                     <p className="text-xs text-slate-200 font-sans leading-relaxed">
                       {sector.ourValue}
@@ -107,7 +107,7 @@ export default function IndustryExpertisePage() {
                   <div className="pt-2 flex items-center justify-between">
                     <Link
                       href="/contact"
-                      className="inline-flex items-center space-x-2 bg-navy text-white hover:bg-gold hover:text-navy-dark font-mono text-xs font-bold px-5 py-2.5 rounded transition-colors"
+                      className="inline-flex items-center space-x-2 bg-navy text-white hover:bg-gold hover:text-navy-dark font-mono text-xs font-bold px-5 py-2.5 rounded transition-all transform hover:-translate-y-0.5"
                     >
                       <span>Discuss {sector.title} Engagement</span>
                       <ArrowRight className="w-3.5 h-3.5" />

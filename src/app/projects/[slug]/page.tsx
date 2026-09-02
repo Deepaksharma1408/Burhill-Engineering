@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { SITE_CONTENT, CaseStudy } from '@/data/content';
+import { SITE_CONTENT } from '@/data/content';
 import { BlueprintGraphic } from '@/components/ui/BlueprintGraphic';
 import { TechnicalGridOverlay } from '@/components/ui/TechnicalGridOverlay';
 import { CTABanner } from '@/components/ui/CTABanner';
-import { ArrowLeft, MapPin, Tag, Building, ShieldCheck, CheckCircle2, FileText } from 'lucide-react';
+import { ArrowLeft, MapPin, CheckCircle2 } from 'lucide-react';
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -31,12 +31,12 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       {/* Top Header & Breadcrumb */}
       <section className="bg-navy text-white py-12 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 animate-slide-up">
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-2 text-xs font-mono text-gold hover:text-white transition-colors"
+            className="inline-flex items-center space-x-2 text-xs font-mono text-gold hover:text-white transition-colors group"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
             <span>Back to All Case Studies</span>
           </Link>
 
@@ -47,7 +47,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               </span>
               <span className="text-slate-400">|</span>
               <span className="flex items-center space-x-1 text-slate-300">
-                <MapPin className="w-3.5 h-3.5 text-gold" />
+                <MapPin className="w-3.5 h-3.5 text-gold animate-pulse-subtle" />
                 <span>{project.location}</span>
               </span>
             </div>
@@ -67,9 +67,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-navy-dark p-6 rounded-xl border border-navy-border">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-navy-dark p-6 rounded-xl border border-navy-border animate-slide-up">
           {project.metrics.map((m, idx) => (
-            <div key={idx} className="text-center p-4 bg-navy rounded border border-gold/20 space-y-1">
+            <div key={idx} className="text-center p-4 bg-navy rounded border border-gold/20 hover:border-gold/50 transition-all hover:-translate-y-1 space-y-1">
               <div className="text-2xl sm:text-3xl font-mono font-bold text-gold">{m.value}</div>
               <div className="text-xs font-mono text-slate-300 uppercase">{m.label}</div>
             </div>
@@ -77,7 +77,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </div>
 
         {/* Blueprint Visual Panel */}
-        <div className="bg-navy-dark rounded-xl border border-navy-border p-6 shadow-xl space-y-2">
+        <div className="bg-navy-dark rounded-xl border border-navy-border p-6 shadow-xl space-y-2 animate-slide-up">
           <div className="text-xs font-mono text-gold uppercase tracking-wider flex items-center justify-between border-b border-navy-border pb-2">
             <span>CAD TECHNICAL DIAGNOSTIC DIAGRAM // REF: #{project.id}</span>
             <span className="text-[10px] text-slate-400">AUDITED ENGAGEMENT</span>
@@ -89,7 +89,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         <div className="grid grid-cols-1 gap-8">
           
           {/* Challenge Box */}
-          <div className="bg-white border border-slate-border rounded-lg p-6 sm:p-8 space-y-3">
+          <div className="bg-white border border-slate-border rounded-lg p-6 sm:p-8 space-y-3 hover:border-gold hover:shadow-xl transition-all duration-300 animate-slide-up">
             <div className="flex items-center space-x-2 text-xs font-mono font-bold text-red-700 uppercase bg-red-50 px-3 py-1 rounded w-fit border border-red-200">
               <span>01 // THE TECHNICAL CHALLENGE</span>
             </div>
@@ -102,7 +102,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
 
           {/* Approach Box */}
-          <div className="bg-white border border-slate-border rounded-lg p-6 sm:p-8 space-y-3">
+          <div className="bg-white border border-slate-border rounded-lg p-6 sm:p-8 space-y-3 hover:border-gold hover:shadow-xl transition-all duration-300 animate-slide-up delay-100">
             <div className="flex items-center space-x-2 text-xs font-mono font-bold text-navy uppercase bg-slate-bg px-3 py-1 rounded w-fit border border-slate-border">
               <span>02 // BURHILL ENGINEERING APPROACH</span>
             </div>
@@ -118,7 +118,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               <span className="text-xs font-mono font-bold uppercase text-gold">Specific Methodologies Employed:</span>
               <ul className="space-y-2">
                 {project.technicalKeypoints.map((kp, idx) => (
-                  <li key={idx} className="text-xs text-slate-700 flex items-start space-x-2 bg-slate-bg p-2.5 rounded border border-slate-border">
+                  <li key={idx} className="text-xs text-slate-700 flex items-start space-x-2 bg-slate-bg p-2.5 rounded border border-slate-border hover:border-gold/40 transition-colors">
                     <CheckCircle2 className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                     <span>{kp}</span>
                   </li>
@@ -128,7 +128,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
 
           {/* Outcome Box */}
-          <div className="bg-navy-dark text-white border border-gold/40 rounded-lg p-6 sm:p-8 space-y-3">
+          <div className="bg-navy-dark text-white border border-gold/40 rounded-lg p-6 sm:p-8 space-y-3 shadow-xl hover:border-gold transition-all duration-300 animate-slide-up delay-200">
             <div className="flex items-center space-x-2 text-xs font-mono font-bold text-navy uppercase bg-gold px-3 py-1 rounded w-fit">
               <span>03 // DEFINITIVE TECHNICAL OUTCOME</span>
             </div>

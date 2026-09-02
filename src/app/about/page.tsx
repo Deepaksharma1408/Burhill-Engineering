@@ -4,7 +4,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { DirectorCard } from '@/components/ui/DirectorCard';
 import { CTABanner } from '@/components/ui/CTABanner';
 import { TechnicalGridOverlay } from '@/components/ui/TechnicalGridOverlay';
-import { ShieldCheck, Award, MapPin, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
   title: "About & Leadership Profiles",
@@ -15,11 +15,12 @@ export default function AboutPage() {
   return (
     <div className="space-y-16 sm:space-y-24 py-8">
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Entrance Animation */}
       <section className="bg-navy text-white py-16 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 animate-slide-up">
           <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3 py-1 rounded border border-gold/30">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-subtle"></span>
             <span>PRACTICE OVERVIEW // LEADERSHIP</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
@@ -35,7 +36,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 animate-slide-up">
             <SectionHeader
               eyebrow="DIRECTOR-LED ADVISORY MODEL"
               heading="Construction Engineers First, Uncompromising Rigour Always"
@@ -48,18 +49,18 @@ export default function AboutPage() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200 font-mono text-xs">
-              <div className="p-4 bg-slate-bg rounded border border-slate-border">
+              <div className="p-4 bg-slate-bg rounded border border-slate-border hover:border-gold/50 hover:shadow-md transition-all">
                 <div className="text-gold font-bold text-lg">SYDNEY CBD</div>
                 <div className="text-slate-500 uppercase">Headquarters Practice</div>
               </div>
-              <div className="p-4 bg-slate-bg rounded border border-slate-border">
+              <div className="p-4 bg-slate-bg rounded border border-slate-border hover:border-gold/50 hover:shadow-md transition-all">
                 <div className="text-gold font-bold text-lg">CPEng / NER / RPEQ</div>
                 <div className="text-slate-500 uppercase">Chartered Credentials</div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-navy-dark text-white p-8 rounded-xl border border-navy-border space-y-6 shadow-2xl relative">
+          <div className="lg:col-span-5 bg-navy-dark text-white p-8 rounded-xl border border-navy-border space-y-6 shadow-2xl relative animate-slide-up delay-100 hover:border-gold/50 transition-all duration-300">
             <TechnicalGridOverlay dark />
             <div className="relative z-10 space-y-4">
               <span className="text-xs font-mono font-bold text-gold uppercase tracking-widest block">
@@ -100,6 +101,7 @@ export default function AboutPage() {
             heading="Meet Our Directors"
             subtext="Chartered engineers bringing legal-grade forensic rigor and practical Tier 1 delivery experience."
             centered
+            className="animate-slide-up"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

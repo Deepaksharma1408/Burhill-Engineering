@@ -26,9 +26,9 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-navy-dark/40" aria-hidden="true" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="max-w-3xl space-y-6">
+          <div className="max-w-3xl space-y-6 animate-slide-up">
             <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3.5 py-1.5 rounded border border-gold/30">
-              <span className="w-2 h-2 rounded-full bg-gold"></span>
+              <span className="w-2 h-2 rounded-full bg-gold animate-pulse-subtle"></span>
               <span>{SITE_CONTENT.hero.badge}</span>
             </div>
 
@@ -49,18 +49,18 @@ export default function HomePage() {
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center space-x-2 bg-gold hover:bg-gold-light text-navy-dark font-sans text-sm font-bold px-7 py-3.5 rounded shadow-lg transition-all transform hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center space-x-2 bg-gold hover:bg-gold-light text-navy-dark font-sans text-sm font-bold px-7 py-3.5 rounded shadow-lg transition-all transform hover:-translate-y-0.5"
               >
                 <span>{SITE_CONTENT.hero.primaryCta}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center space-x-2 bg-navy-dark hover:bg-navy-light text-white font-mono text-xs font-semibold px-6 py-3.5 rounded border border-navy-border transition-colors"
+                className="group inline-flex items-center justify-center space-x-2 bg-navy-dark hover:bg-navy-light text-white font-mono text-xs font-semibold px-6 py-3.5 rounded border border-navy-border hover:border-gold/50 transition-all"
               >
                 <span>{SITE_CONTENT.hero.secondaryCta}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-gold" />
+                <ArrowRight className="w-3.5 h-3.5 text-gold group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 

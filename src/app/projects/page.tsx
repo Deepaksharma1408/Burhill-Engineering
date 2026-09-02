@@ -14,11 +14,12 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-16 sm:space-y-24 py-8">
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Entrance Animation */}
       <section className="bg-navy text-white py-16 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 animate-slide-up">
           <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3 py-1 rounded border border-gold/30">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-subtle"></span>
             <span>TRACK RECORD // AUDITED CASE FILES</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
@@ -36,6 +37,7 @@ export default function ProjectsPage() {
           eyebrow="ENGINEERING CASE FILES"
           heading="Featured Representative Engagements"
           subtext="Detailed breakdowns of technical challenges, diagnostic methodologies, and quantifiable outcomes."
+          className="animate-slide-up"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

@@ -1,11 +1,9 @@
 import React from 'react';
-import Metadata from 'next';
 import { SITE_CONTENT } from '@/data/content';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ServiceCard } from '@/components/ui/ServiceCard';
 import { CTABanner } from '@/components/ui/CTABanner';
 import { TechnicalGridOverlay } from '@/components/ui/TechnicalGridOverlay';
-import { Shield, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: "Services & Engineering Pillars",
@@ -16,11 +14,12 @@ export default function ServicesPage() {
   return (
     <div className="space-y-16 sm:space-y-24 py-8">
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Slide-Up Entrance */}
       <section className="bg-navy text-white py-16 border-b border-navy-border relative overflow-hidden">
         <TechnicalGridOverlay dark />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4 animate-slide-up">
           <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3 py-1 rounded border border-gold/30">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-subtle"></span>
             <span>PRACTICE CAPABILITIES // MODULAR FRAMEWORK</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
@@ -32,12 +31,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid (Expandable Cards View) */}
+      {/* Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <SectionHeader
           eyebrow="COMPLETE SERVICE SCOPE"
           heading="Modular Engineering Scope"
           subtext="Select any service pillar to view detailed deliverables, regulatory standards compliance, and sector applications."
+          className="animate-slide-up"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -60,10 +60,11 @@ export default function ServicesPage() {
             eyebrow="REGULATORY & QUALITY ALIGNMENT"
             heading="Engineered to Legal & Australian Standards Specifications"
             subtext="Our engineers strictly align all deliverables with statutory frameworks and technical codes."
+            className="animate-slide-up"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3">
+            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3 hover:border-gold hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out animate-slide-up">
               <div className="text-xs font-mono font-bold text-gold uppercase">STANDARDS COMPLIANCE</div>
               <h3 className="text-lg font-serif font-bold text-navy">AS 3600 & AS 5100</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -71,7 +72,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3">
+            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3 hover:border-gold hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out animate-slide-up delay-100">
               <div className="text-xs font-mono font-bold text-gold uppercase">LEGAL PROCEDURES</div>
               <h3 className="text-lg font-serif font-bold text-navy">Federal Court CPR 35</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -79,7 +80,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3">
+            <div className="bg-white p-6 rounded-lg border border-slate-border space-y-3 hover:border-gold hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out animate-slide-up delay-200">
               <div className="text-xs font-mono font-bold text-gold uppercase">NSW REGULATION</div>
               <h3 className="text-lg font-serif font-bold text-navy">DBP Act 2020 Compliance</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
