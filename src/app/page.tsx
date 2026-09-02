@@ -13,79 +13,66 @@ export default function HomePage() {
   return (
     <div className="space-y-16 sm:space-y-24">
 
-      {/* 1. HERO SECTION WITH INDUSTRIAL BACKGROUND */}
+      {/* 1. HERO SECTION WITH CLEAN INDUSTRIAL BACKGROUND */}
       <section className="relative bg-navy-dark text-white pt-12 pb-20 lg:py-28 overflow-hidden border-b border-navy-border min-h-[640px] flex items-center">
         {/* Cinematic Heavy Industrial Sunset Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75"
           style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
           aria-hidden="true"
         />
-        {/* Dark Navy Gradient Overlay - darker on left for crisp text contrast, open on right for full image visibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/80 to-navy-dark/40" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-navy-dark/50" aria-hidden="true" />
-        <TechnicalGridOverlay dark />
+        {/* Dark Navy Gradient Overlay - dark on left for text legibility, crystal clear on right for sunset industrial view */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/85 to-navy-dark/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-navy-dark/40" aria-hidden="true" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3.5 py-1.5 rounded border border-gold/30">
+              <span className="w-2 h-2 rounded-full bg-gold"></span>
+              <span>{SITE_CONTENT.hero.badge}</span>
+            </div>
 
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold text-gold uppercase tracking-widest bg-navy-dark px-3.5 py-1.5 rounded border border-gold/30">
-                <span className="w-2 h-2 rounded-full bg-gold"></span>
-                <span>{SITE_CONTENT.hero.badge}</span>
-              </div>
-
-              <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
-                  {SITE_CONTENT.hero.headline}
-                </h1>
-                <p className="text-xl sm:text-2xl font-serif font-semibold gold-gradient-text">
-                  {SITE_CONTENT.hero.subtext}
-                </p>
-              </div>
-
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                {SITE_CONTENT.hero.leadParagraph}
+            <div className="space-y-2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+                {SITE_CONTENT.hero.headline}
+              </h1>
+              <p className="text-xl sm:text-2xl font-serif font-semibold gold-gradient-text">
+                {SITE_CONTENT.hero.subtext}
               </p>
-
-              {/* CTAs */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center space-x-2 bg-gold hover:bg-gold-light text-navy-dark font-sans text-sm font-bold px-7 py-3.5 rounded shadow-lg transition-all transform hover:-translate-y-0.5"
-                >
-                  <span>{SITE_CONTENT.hero.primaryCta}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center space-x-2 bg-navy-dark hover:bg-navy-light text-white font-mono text-xs font-semibold px-6 py-3.5 rounded border border-navy-border transition-colors"
-                >
-                  <span>{SITE_CONTENT.hero.secondaryCta}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-gold" />
-                </Link>
-              </div>
-
-              {/* Hero Metrics Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-navy-border/60">
-                {SITE_CONTENT.hero.metrics.map((m, idx) => (
-                  <div key={idx} className="space-y-1">
-                    <div className="text-xl sm:text-2xl font-mono font-bold text-gold">{m.value}</div>
-                    <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">{m.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Right Blueprint CAD Illustration */}
-            <div className="lg:col-span-5 relative">
-              <div className="bg-navy-dark p-2 rounded-xl border border-gold/40 shadow-2xl">
-                <BlueprintGraphic type="hero" />
-              </div>
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+              {SITE_CONTENT.hero.leadParagraph}
+            </p>
+
+            {/* CTAs */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center space-x-2 bg-gold hover:bg-gold-light text-navy-dark font-sans text-sm font-bold px-7 py-3.5 rounded shadow-lg transition-all transform hover:-translate-y-0.5"
+              >
+                <span>{SITE_CONTENT.hero.primaryCta}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center space-x-2 bg-navy-dark hover:bg-navy-light text-white font-mono text-xs font-semibold px-6 py-3.5 rounded border border-navy-border transition-colors"
+              >
+                <span>{SITE_CONTENT.hero.secondaryCta}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-gold" />
+              </Link>
             </div>
 
+            {/* Hero Metrics Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-navy-border/60">
+              {SITE_CONTENT.hero.metrics.map((m, idx) => (
+                <div key={idx} className="space-y-1">
+                  <div className="text-xl sm:text-2xl font-mono font-bold text-gold">{m.value}</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">{m.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
