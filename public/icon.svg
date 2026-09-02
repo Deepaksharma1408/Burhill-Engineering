@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Deep Navy Background with Gold Engineering Border -->
+  <rect width="64" height="64" rx="14" fill="#0D1424"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#B58A43" stroke-width="2.5"/>
+  <rect x="5" y="5" width="54" height="54" rx="9" stroke="#1F2E4F" stroke-width="1"/>
+
+  <!-- Isometric Blueprint Beam Accent -->
+  <path d="M32 12 L48 21 L32 30 L16 21 Z" fill="rgba(181, 138, 67, 0.15)" stroke="#D4AF37" stroke-width="2"/>
+  <line x1="32" y1="30" x2="32" y2="40" stroke="#D4AF37" stroke-width="2"/>
+  <line x1="16" y1="21" x2="16" y2="31" stroke="#B58A43" stroke-width="1.5"/>
+  <line x1="48" y1="21" x2="48" y2="31" stroke="#B58A43" stroke-width="1.5"/>
+
+  <!-- BEP Monogram Stamp -->
+  <text x="32" y="53" fill="#F4F6F9" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="12" text-anchor="middle" letter-spacing="1.5">BEP</text>
+  
+  <!-- Corner CAD Crosshair Accent -->
+  <circle cx="32" cy="21" r="2" fill="#D4AF37"/>
+</svg>
