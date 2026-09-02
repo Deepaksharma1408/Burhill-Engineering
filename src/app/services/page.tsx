@@ -41,12 +41,11 @@ export default function ServicesPage() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {SITE_CONTENT.services.map((service, idx) => (
+          {SITE_CONTENT.services.map((service) => (
             <div id={service.slug} key={service.id} className="scroll-mt-24">
               <ServiceCard
                 service={service}
                 expandable={true}
-                featured={idx === 0 || idx === 7}
               />
             </div>
           ))}

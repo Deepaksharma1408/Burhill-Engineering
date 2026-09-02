@@ -40,35 +40,28 @@
   background-size: 32px 32px;
 }
 
-.bg-dot-matrix {
-  background-image: radial-gradient(rgba(31, 46, 79, 0.08) 1.5px, transparent 1.5px);
+/* Engineering Blueprint Vector Grid Accent */
+.bg-blueprint-lines {
+  background-image: radial-gradient(circle, rgba(181, 138, 67, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.gold-gradient-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #B58A43 50%, #8F6B2E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navy-gold-border {
-  border-left: 3px solid #B58A43;
-}
-
-/* Keyframe Animations & Micro-Transitions */
+/* Keyframe Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -96,6 +89,26 @@
     opacity: 0.65;
     transform: scale(1.1);
   }
+}
+
+/* Continuous Infinite Marquee Animation for Seamless Ticker */
+@keyframes continuousMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: continuousMarquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 .animate-fade-in {

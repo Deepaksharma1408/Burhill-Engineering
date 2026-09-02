@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SITE_CONTENT } from '@/data/content';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ServiceCard } from '@/components/ui/ServiceCard';
+import { ServiceCarousel } from '@/components/ui/ServiceCarousel';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import { CTABanner } from '@/components/ui/CTABanner';
 import { BlueprintGraphic } from '@/components/ui/BlueprintGraphic';
@@ -162,8 +163,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. SNAPSHOT OF 8 SERVICE PILLARS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* 4. SNAPSHOT OF 8 SERVICE PILLARS (SINGLE-ROW SLIDESHOW) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <SectionHeader
             eyebrow="SPECIALIST SERVICE PILLARS"
@@ -179,16 +180,8 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Grid of 8 Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SITE_CONTENT.services.map((service, idx) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              featured={idx === 0 || idx === 7}
-            />
-          ))}
-        </div>
+        {/* Single-Row Horizontal Carousel */}
+        <ServiceCarousel services={SITE_CONTENT.services} />
       </section>
 
       {/* 5. "WHY BURHILL" - KEY MESSAGING PILLARS */}
