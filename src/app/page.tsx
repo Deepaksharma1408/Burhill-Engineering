@@ -201,22 +201,22 @@ export default function HomePage() {
             centered
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {SITE_CONTENT.messagingPillars.map((pillar, idx) => (
               <div
                 key={pillar.id}
-                className="bg-white p-8 rounded-lg border border-slate-border hover:border-gold hover:shadow-lg transition-all space-y-4"
+                className="bg-white p-6 sm:p-7 rounded-lg border border-slate-border hover:border-gold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3.5 animate-slide-up"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs font-bold text-gold px-2.5 py-1 rounded bg-navy text-gold">
                     0{idx + 1} // ESSENTIAL PRINCIPLE
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-slate-bg text-navy flex items-center justify-center font-mono text-xs font-bold border border-slate-border">
+                  <div className="w-7 h-7 rounded-full bg-slate-bg text-navy flex items-center justify-center font-mono text-xs font-bold border border-slate-border">
                     P{idx + 1}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-serif font-bold text-navy">
+                <h3 className="text-lg sm:text-xl font-serif font-bold text-navy">
                   "{pillar.title}"
                 </h3>
 
@@ -224,7 +224,7 @@ export default function HomePage() {
                   {pillar.quote}
                 </p>
 
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
